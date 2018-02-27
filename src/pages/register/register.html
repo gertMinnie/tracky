@@ -14,5 +14,40 @@
 
 
 <ion-content padding>
-    <button ion-button color="dark" (click)="goToLogin()">Login</button>
+    <button ion-button color="dark" (click)="goToLogin()">Back</button>
+    <form [formGroup]="registerForm">
+        <ion-list inset>
+
+            <ion-item>
+                <ion-label>Full name</ion-label>
+                <ion-input name="username" type="text" formControlName="username"></ion-input>
+            </ion-item>
+
+            <ion-item *ngIf="registerForm.controls.username.invalid  && registerForm.controls.username.dirty">
+                <p>Please enter a valid name.</p>
+            </ion-item>
+
+            <ion-item>
+                <ion-label>Email</ion-label>
+                <ion-input name="email" type="email" formControlName="email"></ion-input>
+            </ion-item>
+
+            <ion-item *ngIf="registerForm.controls.email.invalid  && registerForm.controls.email.dirty">
+                <p>Please enter a valid email address.</p>
+            </ion-item>
+
+            <ion-item>
+                <ion-label>Password</ion-label>
+                <ion-input name="password" type="password" formControlName="password"></ion-input>
+            </ion-item>
+
+            <ion-item *ngIf="registerForm.controls.password.invalid  && registerForm.controls.password.dirty">
+                <p>Please enter a valid password.</p>
+            </ion-item>
+
+        </ion-list>
+        <button ion-button color="primary" (click)="register()" [disabled]="registerForm.invalid">Register</button>
+        <button ion-button color="secondary">Sign up with Google</button>
+    </form>
+
 </ion-content>
