@@ -16,6 +16,9 @@ import { RegisterPage } from '../register/register';
 })
 export class LoginPage {
 
+  loginPassword: String;
+  loginEmail: String;
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
